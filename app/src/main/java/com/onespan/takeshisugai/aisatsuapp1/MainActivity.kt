@@ -59,20 +59,37 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener, TimePickerDialog
 
         val timePickerDialog = TimePickerDialog(
             this,
-            TimePickerDialog.OnTimeSetListener { _, hour, minute -> Log.d("UI_PARTS", "$hour:$minute")
+            TimePickerDialog.OnTimeSetListener { _, hour, minute ->
+                Log.d("UI_PARTS", "$hour:$minute")
+
+
+                val messageView: TextView = findViewById(R.id.textView)
+
+                //         2:00 ~ 9:59
+                if (2 <= hour && hour <= 9) {
+                    run({
+
+                        messageView.text = "おはよう"
+
+                    })
+                } else if (10 <= hour && hour <= 17) {
+
+                    messageView.text = "こんにちは"
+
+                } else if (18 <= hour && hour <= 24) {
+                    messageView.text = "こんばんわ"
+
+                } else if (0 <= hour && hour <= 1) {
+                    messageView.text = "こんばんわ"
+                }
             },
-            /*
-            { ->
-                val messageView = findViewById<TextView>(R.id.textView)
-            }
-               */
-            13, 0, true
+                13, 0, true
 
 
                                // val messageView: TextView = findViewById(R.id.textView)
         )
 
-            // hour1 = hour
+      
 
 
         timePickerDialog.show()
@@ -89,7 +106,7 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener, TimePickerDialog
          //this.textView.show()
 */
 
-       val messageView: TextView = findViewById(R.id.textView)
+       // val messageView: TextView = findViewById(R.id.textView)
 
         // val hour3 = timePickerDialog.
 
@@ -99,7 +116,7 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener, TimePickerDialog
 
         // messageView.text = "$hour" + ":"
 
-        messageView.text = "test ++++ :"
+       // messageView.text = "test ++++ :"
 
         // messageView.text =  timePickerDialog + ":" // + minute.toString()
         // messageView.text = "サンプルメッセージ表示"
